@@ -3,26 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RU Dev — Modern Software Development Company</title>
-<meta name="description" content="RU Dev builds Android apps, Windows software, and modern websites.">
+<title>RU Dev — Software Company</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-  body {
-    background: radial-gradient(circle at top, #1e293b, #020617);
-  }
+body{
+  background:#020617;
+}
+section{
+  border-top:1px solid rgba(255,255,255,0.08);
+}
 </style>
 </head>
 
 <body class="text-slate-100">
 
-<!-- NAVBAR -->
-<header class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-  <div class="text-2xl font-bold">RU Dev</div>
-  <nav class="space-x-8 text-slate-300 hidden md:block">
-    <a href="#services" class="hover:text-white">Services</a>
-    <a href="#clients" class="hover:text-white">Clients</a>
-    <a href="#work" class="hover:text-white">Work</a>
-    <a href="#about" class
+<!-- NAVBAR (VISIBLE EVERYWHERE) -->
+<header class="sticky top-0 bg-black/70 backdrop-blur z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap gap-4 justify-between items-center">
+    <div class="text-2xl font-bold">RU Dev</div>
+    <nav class="flex gap-6 text-slate-300 text-sm">
+      <a href="#services" class="hover:text-white">Services</a>
+      <a href="#clients" class="hover:text-white">Clients</a>
+      <a href="#work" class="hover:text-white">Work</a>
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+  <h1 class="text-5xl font-extrabold">
+    RU Dev builds <span class="text-blue-400">modern apps</span>
+  </h1>
+  <p class="mt-6 text-lg text-slate-300 max-w-2xl">
+    Android apps, Windows software and modern websites for businesses.
+  </p>
+  <a href="start-project.html"
+     class="inline-block mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-xl font-semibold">
+    Start a Project
+  </a>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="max-w-7xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-12">Services</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-white/10 p-8 rounded-xl">Android App Development</div>
+    <div class="bg-white/10 p-8 rounded-xl">Windows Software</div>
+    <div class="bg-white/10 p-8 rounded-xl">Website Development</div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients" class="max-w-7xl mx-auto px-6 py-24">
+  <h2 class="text-4xl font-bold mb-12">Clients</h2>
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <div class="bg-white/10 p-8 rounded-xl">
+      <h3 class="text-xl text-blue-400">Jawla Apps</h3>
+      <p class="text-slate-300 mt-2">
+        Jawla Browser, Jawla VPN, Calculator App
+      </p>
+    </d
