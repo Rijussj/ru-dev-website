@@ -1,233 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RU Dev | App & Software Development Company</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RU Dev | Modern App & Software Company</title>
 
-  <!-- SEO -->
-  <meta name="description" content="RU Dev is a software development company providing Android apps, Windows software, and website development services.">
-  <meta name="keywords" content="RU Dev, Android App Development, Windows Software, Website Development">
-  <meta name="author" content="RU Dev">
+<meta name="description" content="RU Dev builds modern Android apps, Windows software and high-performance websites.">
+<meta name="keywords" content="RU Dev, app development, software company, android, windows, website">
 
-  <!-- Style -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
+<style>
+:root{
+  --primary:#2563eb;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --gray:#64748b;
+}
 
-    header {
-      background: #0d6efd;
-      color: #fff;
-      padding: 50px 20px;
-      text-align: center;
-    }
+*{box-sizing:border-box}
 
-    header h1 {
-      margin: 0;
-      font-size: 42px;
-    }
+body{
+  margin:0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background:var(--light);
+  color:var(--dark);
+}
 
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  padding:90px 20px;
+}
 
-    nav {
-      background: #111;
-      padding: 12px;
-      text-align: center;
-    }
+.container{
+  max-width:1200px;
+  margin:auto;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:60px;
+}
 
-    nav a:hover {
-      color: #0d6efd;
-    }
+.logo{
+  font-size:26px;
+  font-weight:700;
+}
 
-    section {
-      padding: 50px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
+}
 
-    .hero {
-      text-align: center;
-      background: #fff;
-    }
+.hero{
+  max-width:650px;
+}
 
-    .hero h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
+.hero h1{
+  font-size:48px;
+  line-height:1.2;
+}
 
-    .hero p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .services {
-      background: #fdfdfd;
-    }
-
-    .services h2,
-    .about h2,
-    .contact h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
-
-    .service-box {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #0d6efd;
-    }
-
-    .about {
-      background: #fff;
-      text-align: center;
-    }
-
-    .about p {
-      font-size: 17px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.7;
-    }
-
-    .contact {
-      background: #fdfdfd;
-      text-align: center;
-    }
-
-    .contact p {
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #0d6efd;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background: #084298;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <h1>RU Dev</h1>
-    <p>Android Apps • Windows Software • Website Development</p>
-  </header>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <h2>We Build Digital Solutions</h2>
-    <p>
-      RU Dev is a professional software development company delivering
-      high-quality Android apps, Windows applications, and modern websites
-      for businesses and individuals.
-    </p>
-    <a class="btn" href="#contact">Get in Touch</a>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-    <div class="service-box">
-      <div class="card">
-        <h3>Android App Development</h3>
-        <p>Custom Android applications with clean UI, secure code, and Play Store ready builds.</p>
-      </div>
-
-      <div class="card">
-        <h3>Windows Software</h3>
-        <p>Reliable Windows desktop applications for business automation and productivity.</p>
-      </div>
-
-      <div class="card">
-        <h3>Website Development</h3>
-        <p>Fast, responsive, and SEO-friendly websites for startups and companies.</p>
-      </div>
-
-      <div class="card">
-        <h3>App Publishing</h3>
-        <p>Complete support for Play Store publishing, updates, and maintenance.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <h2>About RU Dev</h2>
-    <p>
-      RU Dev focuses on building scalable and affordable digital products.
-      We believe in quality, transparency, and long-term client relationships.
-      Our mission is to help businesses grow with technology.
-    </p>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>
-      📧 Email: contact@rudev.com <br/>
-      📱 WhatsApp: +91-XXXXXXXXXX <br/>
-      🌐 Website: www.rudev.com
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 RU Dev | All Rights Reserved
-  </footer>
-
-</body>
-</html>
+.hero p{
+  font-size:18px;
+  color:
