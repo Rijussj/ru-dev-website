@@ -1,0 +1,17 @@
+{
+  "name": "vase-html5-game",
+  "version": "1.0.0",
+  "description": "Vase - A Fragile HTML5 Physics Puzzle Game with 20 levels",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y http-server . -p 8080 -o"
+  },
+  "keywords": [
+    "html5",
+    "physics",
+    "game",
+    "canvas"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

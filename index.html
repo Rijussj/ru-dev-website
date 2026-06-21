@@ -1,161 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RU Dev | Software Development Company</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-body{
-  background:#020617;
-}
-section{
-  border-top:1px solid rgba(255,255,255,0.08);
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Game Hub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  
+  <!-- GAME HUB SELECTOR -->
+  <div id="hub-container">
+    <h1>ARCADE HUB</h1>
+    <div class="subtitle">CHOOSE YOUR CHALLENGE</div>
+    
+    <div class="hub-cards">
+      <!-- Vase Card -->
+      <div class="game-card" id="card-vase">
+        <div class="card-glow vase"></div>
+        <div class="card-content">
+          <div class="card-icon">🏺</div>
+          <h2>VASE</h2>
+          <p>A Fragile Physics Puzzle. Pull, aim, and launch projectiles to shatter the ceramic blocks across 20 levels.</p>
+          <button class="btn">PLAY VASE</button>
+        </div>
+      </div>
+      
+      <!-- Nebula Invaders Card -->
+      <div class="game-card" id="card-space">
+        <div class="card-glow space"></div>
+        <div class="card-content">
+          <div class="card-icon">🚀</div>
+          <h2>NEBULA INVADERS</h2>
+          <p>Retro Space Shooter. Guard the galaxy against 20 stages of advancing alien formations and massive bosses.</p>
+          <button class="btn btn-cyan">PLAY NEBULA</button>
+        </div>
+      </div>
 
-<body class="text-slate-100">
-
-<!-- NAVBAR -->
-<header class="sticky top-0 bg-black/80 backdrop-blur z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="text-2xl font-bold">RU Dev</div>
-    <nav class="flex gap-6 text-slate-300 text-sm">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#clients">Clients</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="max-w-7xl mx-auto px-6 py-24">
-  <h1 class="text-5xl font-extrabold">
-    RU Dev builds <span class="text-blue-400">apps, software & websites</span>
-  </h1>
-  <p class="mt-6 text-lg text-slate-300 max-w-2xl">
-    Affordable Android apps, Windows software and website development
-    for businesses and product companies.
-  </p>
-  <a href="start-project.html"
-     class="inline-block mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-xl font-semibold">
-    Start a Project
-  </a>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="max-w-7xl mx-auto px-6 py-24">
-  <h2 class="text-4xl font-bold mb-12">Services</h2>
-  <div class="grid md:grid-cols-3 gap-8">
-    <div class="bg-white/10 p-8 rounded-xl">
-      <h3 class="text-xl text-blue-400 mb-2">Android App Development</h3>
-      <p class="text-slate-300">Custom Android apps (Play Store ready)</p>
-    </div>
-    <div class="bg-white/10 p-8 rounded-xl">
-      <h3 class="text-xl text-blue-400 mb-2">Windows App Development</h3>
-      <p class="text-slate-300">Desktop software & tools</p>
-    </div>
-    <div class="bg-white/10 p-8 rounded-xl">
-      <h3 class="text-xl text-blue-400 mb-2">Website Development</h3>
-      <p class="text-slate-300">Modern, responsive websites</p>
+      <!-- Neon Viper Card -->
+      <div class="game-card" id="card-viper">
+        <div class="card-glow viper"></div>
+        <div class="card-content">
+          <div class="card-icon">🐍</div>
+          <h2>NEON VIPER</h2>
+          <p>Grid Action Puzzle. Navigate neon mazes, enter teleportation blocks, and eat 5 energy cores to escape 20 sectors.</p>
+          <button class="btn btn-green">PLAY VIPER</button>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- PRICING -->
-<section id="pricing" class="max-w-7xl mx-auto px-6 py-24">
-  <h2 class="text-4xl font-bold text-center mb-6">Pricing</h2>
-  <p class="text-slate-300 text-center mb-14">
-    Simple & transparent pricing (starting from)
-  </p>
+  <script>
+    document.getElementById('card-vase').addEventListener('click', () => {
+      window.location.href = 'vase.html';
+    });
 
-  <div class="grid md:grid-cols-5 gap-8">
+    document.getElementById('card-space').addEventListener('click', () => {
+      window.location.href = 'space.html';
+    });
 
-    <div class="bg-white/10 p-8 rounded-xl text-center border border-white/20">
-      <h3 class="text-blue-400 font-semibold mb-3">Android App Development</h3>
-      <p class="text-3xl font-bold mb-4">₹999<span class="text-sm">*</span></p>
-      <p class="text-slate-300 text-sm">Basic Android app</p>
-    </div>
-
-    <div class="bg-white/10 p-8 rounded-xl text-center border border-white/20">
-      <h3 class="text-blue-400 font-semibold mb-3">Windows App Development</h3>
-      <p class="text-3xl font-bold mb-4">₹999<span class="text-sm">*</span></p>
-      <p class="text-slate-300 text-sm">Desktop application</p>
-    </div>
-
-    <div class="bg-white/10 p-8 rounded-xl text-center border border-white/20">
-      <h3 class="text-blue-400 font-semibold mb-3">Website Development</h3>
-      <p class="text-3xl font-bold mb-4">₹999<span class="text-sm">*</span></p>
-      <p class="text-slate-300 text-sm">Static / basic website</p>
-    </div>
-
-    <div class="bg-white/10 p-8 rounded-xl text-center border border-white/20">
-      <h3 class="text-blue-400 font-semibold mb-3">Play Store Publishing</h3>
-      <p class="text-3xl font-bold mb-4">₹499<span class="text-sm">*</span></p>
-      <p class="text-slate-300 text-sm">One-time service</p>
-    </div>
-
-    <div class="bg-white/10 p-8 rounded-xl text-center border border-white/20">
-      <h3 class="text-blue-400 font-semibold mb-3">Windows Store Publishing</h3>
-      <p class="text-3xl font-bold mb-4">₹999<span class="text-sm">*</span></p>
-      <p class="text-slate-300 text-sm">Microsoft Store upload</p>
-    </div>
-
-  </div>
-
-  <p class="text-slate-400 text-sm text-center mt-10">
-    * Prices are starting from. Final cost depends on project requirements.
-  </p>
-</section>
-
-<!-- CLIENTS -->
-<section id="clients" class="max-w-7xl mx-auto px-6 py-24">
-  <h2 class="text-4xl font-bold mb-12">Clients & Work</h2>
-
-  <div class="grid md:grid-cols-2 gap-10">
-    <div class="bg-white/10 p-8 rounded-xl">
-      <h3 class="text-2xl text-blue-400 font-semibold">Jawla Apps</h3>
-      <p class="text-slate-300 mt-2">
-        Jawla Browser, Jawla VPN, Calculator App
-      </p>
-    </div>
-
-    <div class="bg-white/10 p-8 rounded-xl">
-      <h3 class="text-2xl text-blue-400 font-semibold">Simple Mobile Tool</h3>
-      <p class="text-slate-300 mt-2">
-        Launcher, Calculator, Calendar, Camera, Clock Apps
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="max-w-7xl mx-auto px-6 py-24">
-  <h2 class="text-4xl font-bold mb-8">About RU Dev</h2>
-  <p class="text-slate-300 text-lg max-w-4xl">
-    RU Dev is a software development company providing affordable Android app,
-    Windows software, and website development services. We focus on quality,
-    reliability, and long-term support.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="max-w-7xl mx-auto px-6 py-24">
-  <h2 class="text-4xl font-bold mb-8">Contact Us</h2>
-  <p class="text-slate-300 text-lg">
-    📧 Email: contact@rudev.com<br><br>
-    📱 WhatsApp: +91-XXXXXXXXXX
-  </p>
-</section>
-
-<footer class="text-center text-slate-400 py-10 border-t border-white/10">
-  © 2026 RU Dev. All Rights Reserved.
-</footer>
-
+    document.getElementById('card-viper').addEventListener('click', () => {
+      window.location.href = 'viper.html';
+    });
+  </script>
 </body>
 </html>

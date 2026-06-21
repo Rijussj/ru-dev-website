@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vase — Physics Puzzle Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas" width="960" height="600"></canvas>
+
+    <!-- Heads Up Display (HUD) -->
+    <div id="hud" class="hidden">
+      <div class="hud-item" id="hud-level-info">
+        <span>Level:</span> <strong id="hud-level-num">1</strong>
+      </div>
+      <div class="hud-item" id="hud-ball-info">
+        <span>Projectiles:</span> <strong id="hud-ball-count">5</strong>
+      </div>
+      <div class="hud-item" id="hud-score-info">
+        <span>Score:</span> <strong id="hud-score">0</strong>
+      </div>
+      <div class="hud-buttons">
+        <button class="hud-btn" id="hud-btn-restart" title="Restart Level">🔄</button>
+        <button class="hud-btn" id="hud-btn-mute" title="Toggle Sound">🔊</button>
+        <button class="hud-btn" id="hud-btn-home" title="Main Menu">🏠</button>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="start-screen" class="overlay">
+      <h1>VASE</h1>
+      <div class="subtitle">A FRAGILE PHYSICS PUZZLE</div>
+      <div class="menu-buttons">
+        <button class="btn" id="btn-play">PLAY</button>
+        <button class="btn btn-secondary" id="btn-levels">LEVELS</button>
+      </div>
+    </div>
+
+    <!-- Level Selection Screen Overlay -->
+    <div id="level-screen" class="overlay hidden">
+      <h2>Select a Level</h2>
+      <div class="subtitle">20 levels of fragile engineering</div>
+      <div class="level-grid" id="level-grid-container"></div>
+      <button class="btn btn-secondary back-btn" id="btn-level-back">BACK</button>
+    </div>
+
+    <!-- Level Cleared / Complete Screen Overlay -->
+    <div id="complete-screen" class="overlay hidden">
+      <div class="modal">
+        <div class="modal-title win">LEVEL CLEARED!</div>
+        <div class="modal-desc" id="complete-desc">You shattered all vases. Perfect!</div>
+        <div class="modal-buttons">
+          <button class="btn" id="btn-next-level">NEXT LEVEL</button>
+          <button class="btn btn-secondary" id="btn-restart-win">REPLAY</button>
+          <button class="btn btn-secondary" id="btn-menu-win">LEVELS</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over / Level Failed Screen Overlay -->
+    <div id="failed-screen" class="overlay hidden">
+      <div class="modal">
+        <div class="modal-title fail">LEVEL FAILED</div>
+        <div class="modal-desc">Vases remain standing. Try another angle!</div>
+        <div class="modal-buttons">
+          <button class="btn" id="btn-restart-fail">TRY AGAIN</button>
+          <button class="btn btn-secondary" id="btn-menu-fail">LEVELS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    // Redirect home button to index.html Hub
+    document.getElementById('hud-btn-home').addEventListener('click', (e) => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

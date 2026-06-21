@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula Invaders — Space Shooter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="space-game-container">
+    <canvas id="spaceCanvas" width="960" height="600"></canvas>
+
+    <!-- HUD -->
+    <div id="space-hud" class="hidden">
+      <div class="space-hud-item">
+        <span>Stage:</span> <strong id="space-hud-level-num">1</strong>
+      </div>
+      <div class="space-hud-item inline-bar">
+        <span>Shield:</span>
+        <div id="space-hud-shield-container">
+          <div id="space-hud-shield-fill"></div>
+        </div>
+      </div>
+      <div class="space-hud-item">
+        <span>Score:</span> <strong id="space-hud-score">0</strong>
+      </div>
+      <div class="space-hud-buttons">
+        <button class="space-hud-btn" id="space-hud-btn-restart" title="Restart Stage">🔄</button>
+        <button class="space-hud-btn" id="space-hud-btn-mute" title="Toggle Sound">🔊</button>
+        <button class="space-hud-btn" id="space-hud-btn-home" title="Main Menu">🏠</button>
+      </div>
+    </div>
+
+    <!-- Start Overlay -->
+    <div id="space-start-screen" class="space-overlay">
+      <h1 class="space-title">NEBULA INVADERS</h1>
+      <div class="subtitle">DEFEND THE HORIZON</div>
+      <button class="btn btn-cyan" id="space-btn-play">START SHIP</button>
+    </div>
+
+    <!-- Clear Overlay -->
+    <div id="space-complete-screen" class="space-overlay hidden">
+      <div class="modal space-modal">
+        <div class="modal-title win">STAGE CLEARED!</div>
+        <div class="modal-desc" id="space-complete-desc">You cleared the wave.</div>
+        <div class="modal-buttons">
+          <button class="btn btn-cyan" id="space-btn-next-level">NEXT STAGE</button>
+          <button class="btn btn-secondary" id="space-btn-restart-win">REPLAY</button>
+          <button class="btn btn-secondary" id="space-btn-menu-win">MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fail Overlay -->
+    <div id="space-failed-screen" class="space-overlay hidden">
+      <div class="modal space-modal">
+        <div class="modal-title fail">SHIP DESTROYED</div>
+        <div class="modal-desc">Shields depleted. Humanity rests on your backup plans.</div>
+        <div class="modal-buttons">
+          <button class="btn btn-cyan" id="space-btn-restart-fail">TRY AGAIN</button>
+          <button class="btn btn-secondary" id="space-btn-menu-fail">MENU</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="spaceGame.js"></script>
+  <script>
+    // Redirect home button to index.html Hub
+    document.getElementById('space-hud-btn-home').addEventListener('click', (e) => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

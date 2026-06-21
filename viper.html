@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Viper — Retro Arcade Snake</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="viper-game-container">
+    <!-- Game Canvas -->
+    <canvas id="viperCanvas" width="960" height="600"></canvas>
+
+    <!-- Heads Up Display (HUD) -->
+    <div id="viper-hud" class="hidden">
+      <div class="viper-hud-item">
+        <span>Level:</span> <strong id="viper-hud-level-num">1</strong>
+      </div>
+      <div class="viper-hud-item">
+        <span>Score:</span> <strong id="viper-hud-score">0</strong>
+      </div>
+      <div class="viper-hud-item">
+        <span>Cores:</span> <strong id="viper-hud-gems">0/5</strong>
+      </div>
+      <div class="viper-hud-buttons">
+        <button class="viper-hud-btn" id="viper-hud-btn-restart" title="Restart Level">🔄</button>
+        <button class="viper-hud-btn" id="viper-hud-btn-mute" title="Toggle Sound">🔊</button>
+        <button class="viper-hud-btn" id="viper-hud-btn-home" title="Main Menu">🏠</button>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="viper-start-screen" class="viper-overlay">
+      <h1 class="viper-title">NEON VIPER</h1>
+      <div class="subtitle">COLLECT THE CORE ENERGIES</div>
+      <div class="menu-buttons">
+        <button class="btn btn-green" id="viper-btn-play">PLAY</button>
+        <button class="btn btn-secondary" id="viper-btn-levels">LEVELS</button>
+      </div>
+    </div>
+
+    <!-- Level Selection Screen Overlay -->
+    <div id="viper-level-screen" class="viper-overlay hidden">
+      <h2>Select a Maze</h2>
+      <div class="subtitle">20 sectors of neon gridlocks</div>
+      <div class="level-grid" id="viper-level-grid-container"></div>
+      <button class="btn btn-secondary back-btn" id="viper-btn-level-back">BACK</button>
+    </div>
+
+    <!-- Level Cleared / Complete Screen Overlay -->
+    <div id="viper-complete-screen" class="viper-overlay hidden">
+      <div class="modal viper-modal">
+        <div class="modal-title win">SECTOR CLEARED!</div>
+        <div class="modal-desc" id="viper-complete-desc">You extracted all cores.</div>
+        <div class="modal-buttons">
+          <button class="btn btn-green" id="viper-btn-next-level">NEXT SECTOR</button>
+          <button class="btn btn-secondary" id="viper-btn-restart-win">REPLAY</button>
+          <button class="btn btn-secondary" id="viper-btn-menu-win">LEVELS</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over / Level Failed Screen Overlay -->
+    <div id="viper-failed-screen" class="viper-overlay hidden">
+      <div class="modal viper-modal">
+        <div class="modal-title fail">VIPER COLLIDED</div>
+        <div class="modal-desc">Hull integrity compromised. Avoid walls and your own tail!</div>
+        <div class="modal-buttons">
+          <button class="btn btn-green" id="viper-btn-restart-fail">TRY AGAIN</button>
+          <button class="btn btn-secondary" id="viper-btn-menu-fail">LEVELS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="viperGame.js"></script>
+  <script>
+    // Redirect home button to index.html Hub
+    document.getElementById('viper-hud-btn-home').addEventListener('click', (e) => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
