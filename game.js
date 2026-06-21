@@ -553,6 +553,13 @@ class Game {
   }
 
   startLevel(idx) {
+    try {
+      const container = document.getElementById('game-container');
+      if (container) {
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+      }
+    } catch(e) {}
     this.currentLevelIdx = idx;
     const config = LEVELS[idx];
     

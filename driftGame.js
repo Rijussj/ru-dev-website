@@ -361,6 +361,13 @@ class NeonDrift {
   }
 
   startLevel(idx) {
+    try {
+      const container = document.getElementById('drift-game-container');
+      if (container) {
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+      }
+    } catch(e) {}
     this.levelIdx = idx;
     this.distanceTraveled = 0;
     this.obstacles = [];

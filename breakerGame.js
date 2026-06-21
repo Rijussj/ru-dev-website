@@ -363,6 +363,13 @@ class BreakerGame {
   }
 
   startLevel(idx) {
+    try {
+      const container = document.getElementById('breaker-game-container');
+      if (container) {
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+      }
+    } catch(e) {}
     this.levelIdx = idx;
     this.lives = 3;
     this.particles = [];

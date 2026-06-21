@@ -364,6 +364,13 @@ class PulseRunner {
   }
 
   startLevel(idx) {
+    try {
+      const container = document.getElementById('runner-game-container');
+      if (container) {
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+      }
+    } catch(e) {}
     this.levelIdx = idx;
     this.cameraX = 0;
     this.particles = [];

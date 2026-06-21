@@ -275,6 +275,13 @@ class SpaceGame {
   }
 
   startStage(stageNum) {
+    try {
+      const container = document.getElementById('space-game-container');
+      if (container) {
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+      }
+    } catch(e) {}
     this.stage = stageNum;
     this.projectiles = [];
     this.enemyProjectiles = [];

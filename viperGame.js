@@ -434,6 +434,13 @@ class ViperGame {
   }
 
   startLevel(idx) {
+    try {
+      const container = document.getElementById('viper-game-container');
+      if (container) {
+        if (container.requestFullscreen) container.requestFullscreen();
+        else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+      }
+    } catch(e) {}
     this.stageIdx = idx;
     this.gemsEaten = 0;
     this.exitUnlocked = false;
