@@ -16,6 +16,9 @@
   --green: #10b981;
   --green-glow: rgba(16, 185, 129, 0.4);
   --green-hover: #34d399;
+  --rose: #f43f5e;
+  --rose-glow: rgba(244, 63, 94, 0.4);
+  --rose-hover: #fb7185;
   --danger: #ef4444;
   --success: #10b981;
   --warning: #f59e0b;
@@ -32,12 +35,14 @@ body {
   font-family: 'Outfit', sans-serif;
   background: var(--bg-gradient);
   color: var(--text-primary);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 10px;
 }
 
 /* Common Hidden Class */
@@ -57,21 +62,23 @@ body {
   background: rgba(15, 23, 42, 0.45);
   border: 1px solid var(--panel-border);
   backdrop-filter: blur(10px);
-  padding: 40px;
+  padding: 30px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
 
 #hub-container h1 {
-  font-size: 4rem;
-  background: linear-gradient(to right, #a78bfa, #22d3ee, #34d399);
+  font-size: 3.5rem;
+  background: linear-gradient(to right, #a78bfa, #22d3ee, #34d399, #fb7185);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
 .hub-cards {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
   width: 100%;
   max-width: 900px;
   justify-content: center;
@@ -80,14 +87,12 @@ body {
 
 .game-card {
   position: relative;
-  flex: 1;
-  max-width: 270px;
-  height: 340px;
   border-radius: 16px;
   background: rgba(30, 41, 59, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
   cursor: pointer;
+  height: 350px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -120,6 +125,10 @@ body {
   background: radial-gradient(circle at center, var(--green) 0%, transparent 70%);
 }
 
+.card-glow.breaker {
+  background: radial-gradient(circle at center, var(--rose) 0%, transparent 70%);
+}
+
 .game-card:hover .card-glow {
   opacity: 0.35;
 }
@@ -127,7 +136,7 @@ body {
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 24px;
+  padding: 20px 16px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -136,8 +145,8 @@ body {
 }
 
 .card-icon {
-  font-size: 3rem;
-  margin-bottom: 12px;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -146,14 +155,14 @@ body {
 }
 
 .game-card h2 {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 800;
   margin-bottom: 10px;
   letter-spacing: 0.5px;
 }
 
 .game-card p {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.45;
   margin-bottom: auto;
@@ -167,7 +176,7 @@ body {
 }
 
 /* GAME CONTAINERS */
-#game-container, #space-game-container, #viper-game-container {
+#game-container, #space-game-container, #viper-game-container, #breaker-game-container {
   position: relative;
   width: 960px;
   height: 600px;
@@ -185,7 +194,7 @@ canvas {
 }
 
 /* Overlays Common */
-.overlay, .space-overlay, .viper-overlay {
+.overlay, .space-overlay, .viper-overlay, .breaker-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -202,13 +211,25 @@ canvas {
   padding: 40px;
 }
 
-.overlay.hidden, .space-overlay.hidden, .viper-overlay.hidden {
+.overlay.hidden, .space-overlay.hidden, .viper-overlay.hidden, .breaker-overlay.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-/* Neon Viper Title */
+/* Titles */
+.breaker-title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #fb7185, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(244, 63, 94, 0.25);
+  letter-spacing: -1px;
+  animation: float 4s ease-in-out infinite;
+}
+
 .viper-title {
   font-size: 5rem;
   font-weight: 800;
@@ -221,7 +242,6 @@ canvas {
   animation: float 4s ease-in-out infinite;
 }
 
-/* Space Title Header */
 .space-title {
   font-size: 5rem;
   font-weight: 800;
@@ -294,6 +314,16 @@ h1 {
 .btn-green:hover {
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
   background: linear-gradient(135deg, var(--green-hover) 0%, var(--green) 100%);
+}
+
+.btn-rose {
+  background: linear-gradient(135deg, var(--rose) 0%, #9f1239 100%);
+  box-shadow: 0 4px 14px var(--rose-glow);
+}
+
+.btn-rose:hover {
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
+  background: linear-gradient(135deg, var(--rose-hover) 0%, var(--rose) 100%);
 }
 
 .btn:active {
@@ -375,7 +405,7 @@ h1 {
 }
 
 /* HUD STYLES */
-#hud, #space-hud, #viper-hud {
+#hud, #space-hud, #viper-hud, #breaker-hud {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -387,7 +417,7 @@ h1 {
   z-index: 5;
 }
 
-.hud-item, .space-hud-item, .viper-hud-item {
+.hud-item, .space-hud-item, .viper-hud-item, .breaker-hud-item {
   background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(8px);
   border: 1px solid var(--panel-border);
@@ -402,13 +432,13 @@ h1 {
   pointer-events: auto;
 }
 
-.hud-buttons, .space-hud-buttons, .viper-hud-buttons {
+.hud-buttons, .space-hud-buttons, .viper-hud-buttons, .breaker-hud-buttons {
   display: flex;
   gap: 10px;
   pointer-events: auto;
 }
 
-.hud-btn, .space-hud-btn, .viper-hud-btn {
+.hud-btn, .space-hud-btn, .viper-hud-btn, .breaker-hud-btn {
   background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(8px);
   border: 1px solid var(--panel-border);
@@ -439,6 +469,12 @@ h1 {
 .viper-hud-btn:hover {
   background: var(--green);
   border-color: var(--green-hover);
+  transform: scale(1.05);
+}
+
+.breaker-hud-btn:hover {
+  background: var(--rose);
+  border-color: var(--rose-hover);
   transform: scale(1.05);
 }
 
@@ -479,7 +515,7 @@ h1 {
   transition: transform 0.3s ease;
 }
 
-.overlay:not(.hidden) .modal, .space-overlay:not(.hidden) .modal, .viper-overlay:not(.hidden) .modal {
+.overlay:not(.hidden) .modal, .space-overlay:not(.hidden) .modal, .viper-overlay:not(.hidden) .modal, .breaker-overlay:not(.hidden) .modal {
   transform: scale(1);
 }
 
@@ -511,6 +547,159 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* --- MOBILE RESPONSIVENESS AND AUTO-SCALING --- */
+@media (max-width: 980px) {
+  /* Scale selectors and containers to viewport size */
+  #hub-container, #game-container, #space-game-container, #viper-game-container, #breaker-game-container {
+    width: 95vw;
+    height: 59.375vw; /* Exact 1.6 aspect ratio (600 / 960 * 95) */
+    margin: 10px auto;
+    border-radius: 12px;
+  }
+
+  #hub-container {
+    height: auto;
+    min-height: 90vh;
+    padding: 20px;
+    justify-content: flex-start;
+  }
+
+  #hub-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  /* Grid adjustment for hub cards */
+  .hub-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .game-card {
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .card-content {
+    padding: 15px 10px;
+  }
+
+  .card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+  }
+
+  .game-card h2 {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  /* Hide description on mobile to keep layout compact and aesthetic */
+  .game-card p {
+    display: none;
+  }
+
+  .game-card button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    margin-top: 5px;
+  }
+
+  /* Scaling HUD inside active games */
+  #hud, #space-hud, #viper-hud, #breaker-hud {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .hud-item, .space-hud-item, .viper-hud-item, .breaker-hud-item {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .hud-btn, .space-hud-btn, .viper-hud-btn, .breaker-hud-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+
+  .space-hud-item.inline-bar {
+    width: 140px;
+  }
+
+  /* Modals */
+  .modal {
+    padding: 20px 15px;
+    max-width: 280px;
+    border-radius: 12px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .modal-desc {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  h1, .space-title, .viper-title, .breaker-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stack cards vertically on very small mobile phones */
+  .hub-cards {
+    grid-template-columns: 1fr;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+  
+  .game-card {
+    height: 110px;
+  }
+
+  .card-content {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  .game-card h2 {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+
+  .game-card button {
+    width: auto;
+    margin-top: 0;
+  }
 }
 
 /* Animations */

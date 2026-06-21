@@ -46,6 +46,17 @@
           <button class="btn btn-green">PLAY VIPER</button>
         </div>
       </div>
+
+      <!-- Pulse Breaker Card -->
+      <div class="game-card" id="card-breaker">
+        <div class="card-glow breaker"></div>
+        <div class="card-content">
+          <div class="card-icon">🧱</div>
+          <h2>PULSE BREAKER</h2>
+          <p>Neon Brick Smasher. Bounce ball pulses, chain explosive detonations, and gather multi-ball power-ups across 20 sectors.</p>
+          <button class="btn btn-rose">PLAY BREAKER</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -60,6 +71,10 @@
 
     document.getElementById('card-viper').addEventListener('click', () => {
       window.location.href = 'viper.html';
+    });
+
+    document.getElementById('card-breaker').addEventListener('click', () => {
+      window.location.href = 'breaker.html';
     });
   </script>
 </body>

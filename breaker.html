@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Breaker — Neon Brick Smasher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="breaker-game-container">
+    <!-- Game Canvas -->
+    <canvas id="breakerCanvas" width="960" height="600"></canvas>
+
+    <!-- Heads Up Display (HUD) -->
+    <div id="breaker-hud" class="hidden">
+      <div class="breaker-hud-item">
+        <span>Sector:</span> <strong id="breaker-hud-level-num">1</strong>
+      </div>
+      <div class="breaker-hud-item">
+        <span>Score:</span> <strong id="breaker-hud-score">0</strong>
+      </div>
+      <div class="breaker-hud-item">
+        <span>Lives:</span> <strong id="breaker-hud-lives">3</strong>
+      </div>
+      <div class="breaker-hud-buttons">
+        <button class="breaker-hud-btn" id="breaker-hud-btn-restart" title="Restart Level">🔄</button>
+        <button class="breaker-hud-btn" id="breaker-hud-btn-mute" title="Toggle Sound">🔊</button>
+        <button class="breaker-hud-btn" id="breaker-hud-btn-home" title="Main Menu">🏠</button>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="breaker-start-screen" class="breaker-overlay">
+      <h1 class="breaker-title">PULSE BREAKER</h1>
+      <div class="subtitle">SHATTER THE NEON SHIELD</div>
+      <div class="menu-buttons">
+        <button class="btn btn-rose" id="breaker-btn-play">PLAY</button>
+        <button class="btn btn-secondary" id="breaker-btn-levels">LEVELS</button>
+      </div>
+    </div>
+
+    <!-- Level Selection Screen Overlay -->
+    <div id="breaker-level-screen" class="breaker-overlay hidden">
+      <h2>Select a Sector</h2>
+      <div class="subtitle">20 levels of block-breaking grids</div>
+      <div class="level-grid" id="breaker-level-grid-container"></div>
+      <button class="btn btn-secondary back-btn" id="breaker-btn-level-back">BACK</button>
+    </div>
+
+    <!-- Level Cleared / Complete Screen Overlay -->
+    <div id="breaker-complete-screen" class="breaker-overlay hidden">
+      <div class="modal breaker-modal">
+        <div class="modal-title win">SECTOR CLEARED!</div>
+        <div class="modal-desc" id="breaker-complete-desc">You shattered all bricks.</div>
+        <div class="modal-buttons">
+          <button class="btn btn-rose" id="breaker-btn-next-level">NEXT SECTOR</button>
+          <button class="btn btn-secondary" id="breaker-btn-restart-win">REPLAY</button>
+          <button class="btn btn-secondary" id="breaker-btn-menu-win">LEVELS</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over / Level Failed Screen Overlay -->
+    <div id="breaker-failed-screen" class="breaker-overlay hidden">
+      <div class="modal breaker-modal">
+        <div class="modal-title fail">SECTOR LOST</div>
+        <div class="modal-desc">All pulses lost. Try altering your paddle bounce angles!</div>
+        <div class="modal-buttons">
+          <button class="btn btn-rose" id="breaker-btn-restart-fail">TRY AGAIN</button>
+          <button class="btn btn-secondary" id="breaker-btn-menu-fail">LEVELS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="breakerGame.js"></script>
+  <script>
+    // Redirect home button to index.html Hub
+    document.getElementById('breaker-hud-btn-home').addEventListener('click', (e) => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
