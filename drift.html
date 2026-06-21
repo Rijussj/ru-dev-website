@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Drift — Cyber Highway Traffic Dodger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="drift-game-container">
+    <!-- Game Canvas -->
+    <canvas id="driftCanvas" width="960" height="600"></canvas>
+
+    <!-- Heads Up Display (HUD) -->
+    <div id="drift-hud" class="hidden">
+      <div class="drift-hud-item">
+        <span>Sector:</span> <strong id="drift-hud-level-num">1</strong>
+      </div>
+      <div class="drift-hud-item">
+        <span>Score:</span> <strong id="drift-hud-score">0</strong>
+      </div>
+      <div class="drift-hud-item">
+        <span>Distance:</span> <strong id="drift-hud-progress">0%</strong>
+      </div>
+      <div class="drift-hud-buttons">
+        <button class="drift-hud-btn" id="drift-hud-btn-restart" title="Restart Level">🔄</button>
+        <button class="drift-hud-btn" id="drift-hud-btn-mute" title="Toggle Sound">🔊</button>
+        <button class="drift-hud-btn" id="drift-hud-btn-home" title="Main Menu">🏠</button>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="drift-start-screen" class="drift-overlay">
+      <h1 class="drift-title">NEON DRIFT</h1>
+      <div class="subtitle">STEER RIGHT & LEFT TO DODGE HIGHWAY TRAFFIC</div>
+      <div class="menu-buttons">
+        <button class="btn btn-purple" id="drift-btn-play">PLAY</button>
+        <button class="btn btn-secondary" id="drift-btn-levels">LEVELS</button>
+      </div>
+    </div>
+
+    <!-- Level Selection Screen Overlay -->
+    <div id="drift-level-screen" class="drift-overlay hidden">
+      <h2>Select a Sector</h2>
+      <div class="subtitle">20 tracks of high-speed steering obstacles</div>
+      <div class="level-grid" id="drift-level-grid-container"></div>
+      <button class="btn btn-secondary back-btn" id="drift-btn-level-back">BACK</button>
+    </div>
+
+    <!-- Level Cleared / Complete Screen Overlay -->
+    <div id="drift-complete-screen" class="drift-overlay hidden">
+      <div class="modal drift-modal">
+        <div class="modal-title win">SECTOR CLEARED!</div>
+        <div class="modal-desc" id="drift-complete-desc">You survived the cyber highway. Sync complete!</div>
+        <div class="modal-buttons">
+          <button class="btn btn-purple" id="drift-btn-next-level">NEXT SECTOR</button>
+          <button class="btn btn-secondary" id="drift-btn-restart-win">REPLAY</button>
+          <button class="btn btn-secondary" id="drift-btn-menu-win">LEVELS</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over / Level Failed Screen Overlay -->
+    <div id="drift-failed-screen" class="drift-overlay hidden">
+      <div class="modal drift-modal">
+        <div class="modal-title fail">DRIFT CRASHED</div>
+        <div class="modal-desc">Car collision detected on highway. Cyber sync lost!</div>
+        <div class="modal-buttons">
+          <button class="btn btn-purple" id="drift-btn-restart-fail">TRY AGAIN</button>
+          <button class="btn btn-secondary" id="drift-btn-menu-fail">LEVELS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="driftGame.js?v=1"></script>
+  <script>
+    // Redirect home button to index.html Hub
+    document.getElementById('drift-hud-btn-home').addEventListener('click', (e) => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Runner — Neon Platform Dodger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="runner-game-container">
+    <!-- Game Canvas -->
+    <canvas id="runnerCanvas" width="960" height="600"></canvas>
+
+    <!-- Heads Up Display (HUD) -->
+    <div id="runner-hud" class="hidden">
+      <div class="runner-hud-item">
+        <span>Sector:</span> <strong id="runner-hud-level-num">1</strong>
+      </div>
+      <div class="runner-hud-item">
+        <span>Score:</span> <strong id="runner-hud-score">0</strong>
+      </div>
+      <div class="runner-hud-item">
+        <span>Progress:</span> <strong id="runner-hud-progress">0%</strong>
+      </div>
+      <div class="runner-hud-buttons">
+        <button class="runner-hud-btn" id="runner-hud-btn-restart" title="Restart Level">🔄</button>
+        <button class="runner-hud-btn" id="runner-hud-btn-mute" title="Toggle Sound">🔊</button>
+        <button class="runner-hud-btn" id="runner-hud-btn-home" title="Main Menu">🏠</button>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="runner-start-screen" class="runner-overlay">
+      <h1 class="runner-title">PULSE RUNNER</h1>
+      <div class="subtitle">TAP TO JUMP & FLIP GRAVITY</div>
+      <div class="menu-buttons">
+        <button class="btn btn-yellow" id="runner-btn-play">PLAY</button>
+        <button class="btn btn-secondary" id="runner-btn-levels">LEVELS</button>
+      </div>
+    </div>
+
+    <!-- Level Selection Screen Overlay -->
+    <div id="runner-level-screen" class="runner-overlay hidden">
+      <h2>Select a Sector</h2>
+      <div class="subtitle">20 tracks of high-speed hazard dodging</div>
+      <div class="level-grid" id="runner-level-grid-container"></div>
+      <button class="btn btn-secondary back-btn" id="runner-btn-level-back">BACK</button>
+    </div>
+
+    <!-- Level Cleared / Complete Screen Overlay -->
+    <div id="runner-complete-screen" class="runner-overlay hidden">
+      <div class="modal runner-modal">
+        <div class="modal-title win">SECTOR CLEARED!</div>
+        <div class="modal-desc" id="runner-complete-desc">You survived the run. Perfect sync!</div>
+        <div class="modal-buttons">
+          <button class="btn btn-yellow" id="runner-btn-next-level">NEXT SECTOR</button>
+          <button class="btn btn-secondary" id="runner-btn-restart-win">REPLAY</button>
+          <button class="btn btn-secondary" id="runner-btn-menu-win">LEVELS</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over / Level Failed Screen Overlay -->
+    <div id="runner-failed-screen" class="runner-overlay hidden">
+      <div class="modal runner-modal">
+        <div class="modal-title fail">PULSE CRASHED</div>
+        <div class="modal-desc">Viper runner collided with a hazard block. Sync lost!</div>
+        <div class="modal-buttons">
+          <button class="btn btn-yellow" id="runner-btn-restart-fail">TRY AGAIN</button>
+          <button class="btn btn-secondary" id="runner-btn-menu-fail">LEVELS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="runnerGame.js?v=7"></script>
+  <script>
+    // Redirect home button to index.html Hub
+    document.getElementById('runner-hud-btn-home').addEventListener('click', (e) => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

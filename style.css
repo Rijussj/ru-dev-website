@@ -19,6 +19,12 @@
   --rose: #f43f5e;
   --rose-glow: rgba(244, 63, 94, 0.4);
   --rose-hover: #fb7185;
+  --yellow: #facc15;
+  --yellow-glow: rgba(250, 204, 21, 0.4);
+  --yellow-hover: #fef08a;
+  --purple: #a855f7;
+  --purple-glow: rgba(168, 85, 247, 0.4);
+  --purple-hover: #c084fc;
   --danger: #ef4444;
   --success: #10b981;
   --warning: #f59e0b;
@@ -57,19 +63,20 @@ body {
   align-items: center;
   justify-content: center;
   width: 960px;
-  height: 600px;
+  min-height: 600px;
+  height: auto;
   border-radius: 20px;
   background: rgba(15, 23, 42, 0.45);
   border: 1px solid var(--panel-border);
   backdrop-filter: blur(10px);
-  padding: 30px;
+  padding: 25px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
 
 #hub-container h1 {
   font-size: 3.5rem;
-  background: linear-gradient(to right, #a78bfa, #22d3ee, #34d399, #fb7185);
+  background: linear-gradient(to right, #a78bfa, #22d3ee, #34d399, #fb7185, #facc15);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -77,10 +84,10 @@ body {
 
 .hub-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   width: 100%;
-  max-width: 900px;
+  max-width: 920px;
   justify-content: center;
   margin-top: 20px;
 }
@@ -92,7 +99,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
   cursor: pointer;
-  height: 350px;
+  height: 360px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -129,6 +136,14 @@ body {
   background: radial-gradient(circle at center, var(--rose) 0%, transparent 70%);
 }
 
+.card-glow.runner {
+  background: radial-gradient(circle at center, var(--yellow) 0%, transparent 70%);
+}
+
+.card-glow.drift {
+  background: radial-gradient(circle at center, var(--purple) 0%, transparent 70%);
+}
+
 .game-card:hover .card-glow {
   opacity: 0.35;
 }
@@ -136,7 +151,7 @@ body {
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 20px 16px;
+  padding: 20px 12px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -145,8 +160,8 @@ body {
 }
 
 .card-icon {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
+  font-size: 2.6rem;
+  margin-bottom: 8px;
   transition: transform 0.3s ease;
 }
 
@@ -155,16 +170,16 @@ body {
 }
 
 .game-card h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
 
 .game-card p {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  line-height: 1.45;
+  line-height: 1.4;
   margin-bottom: auto;
   font-weight: 300;
 }
@@ -176,7 +191,7 @@ body {
 }
 
 /* GAME CONTAINERS */
-#game-container, #space-game-container, #viper-game-container, #breaker-game-container {
+#game-container, #space-game-container, #viper-game-container, #breaker-game-container, #runner-game-container, #drift-game-container {
   position: relative;
   width: 960px;
   height: 600px;
@@ -194,7 +209,7 @@ canvas {
 }
 
 /* Overlays Common */
-.overlay, .space-overlay, .viper-overlay, .breaker-overlay {
+.overlay, .space-overlay, .viper-overlay, .breaker-overlay, .runner-overlay, .drift-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -211,13 +226,37 @@ canvas {
   padding: 40px;
 }
 
-.overlay.hidden, .space-overlay.hidden, .viper-overlay.hidden, .breaker-overlay.hidden {
+.overlay.hidden, .space-overlay.hidden, .viper-overlay.hidden, .breaker-overlay.hidden, .runner-overlay.hidden, .drift-overlay.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
 /* Titles */
+.runner-title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #facc15, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(250, 204, 21, 0.25);
+  letter-spacing: -1px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.drift-title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #a78bfa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(168, 85, 247, 0.25);
+  letter-spacing: -1px;
+  animation: float 4s ease-in-out infinite;
+}
+
 .breaker-title {
   font-size: 5rem;
   font-weight: 800;
@@ -326,6 +365,26 @@ h1 {
   background: linear-gradient(135deg, var(--rose-hover) 0%, var(--rose) 100%);
 }
 
+.btn-yellow {
+  background: linear-gradient(135deg, var(--yellow) 0%, #a16207 100%);
+  box-shadow: 0 4px 14px var(--yellow-glow);
+}
+
+.btn-yellow:hover {
+  box-shadow: 0 6px 20px rgba(250, 204, 21, 0.6);
+  background: linear-gradient(135deg, var(--yellow-hover) 0%, var(--yellow) 100%);
+}
+
+.btn-purple {
+  background: linear-gradient(135deg, var(--purple) 0%, #7e22ce 100%);
+  box-shadow: 0 4px 14px var(--purple-glow);
+}
+
+.btn-purple:hover {
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+  background: linear-gradient(135deg, var(--purple-hover) 0%, var(--purple) 100%);
+}
+
 .btn:active {
   transform: translateY(1px);
 }
@@ -405,7 +464,7 @@ h1 {
 }
 
 /* HUD STYLES */
-#hud, #space-hud, #viper-hud, #breaker-hud {
+#hud, #space-hud, #viper-hud, #breaker-hud, #runner-hud, #drift-hud {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -417,7 +476,7 @@ h1 {
   z-index: 5;
 }
 
-.hud-item, .space-hud-item, .viper-hud-item, .breaker-hud-item {
+.hud-item, .space-hud-item, .viper-hud-item, .breaker-hud-item, .runner-hud-item, .drift-hud-item {
   background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(8px);
   border: 1px solid var(--panel-border);
@@ -432,13 +491,13 @@ h1 {
   pointer-events: auto;
 }
 
-.hud-buttons, .space-hud-buttons, .viper-hud-buttons, .breaker-hud-buttons {
+.hud-buttons, .space-hud-buttons, .viper-hud-buttons, .breaker-hud-buttons, .runner-hud-buttons, .drift-hud-buttons {
   display: flex;
   gap: 10px;
   pointer-events: auto;
 }
 
-.hud-btn, .space-hud-btn, .viper-hud-btn, .breaker-hud-btn {
+.hud-btn, .space-hud-btn, .viper-hud-btn, .breaker-hud-btn, .runner-hud-btn, .drift-hud-btn {
   background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(8px);
   border: 1px solid var(--panel-border);
@@ -475,6 +534,18 @@ h1 {
 .breaker-hud-btn:hover {
   background: var(--rose);
   border-color: var(--rose-hover);
+  transform: scale(1.05);
+}
+
+.runner-hud-btn:hover {
+  background: var(--yellow);
+  border-color: var(--yellow-hover);
+  transform: scale(1.05);
+}
+
+.drift-hud-btn:hover {
+  background: var(--purple);
+  border-color: var(--purple-hover);
   transform: scale(1.05);
 }
 
@@ -515,7 +586,7 @@ h1 {
   transition: transform 0.3s ease;
 }
 
-.overlay:not(.hidden) .modal, .space-overlay:not(.hidden) .modal, .viper-overlay:not(.hidden) .modal, .breaker-overlay:not(.hidden) .modal {
+.overlay:not(.hidden) .modal, .space-overlay:not(.hidden) .modal, .viper-overlay:not(.hidden) .modal, .breaker-overlay:not(.hidden) .modal, .runner-overlay:not(.hidden) .modal, .drift-overlay:not(.hidden) .modal {
   transform: scale(1);
 }
 
@@ -552,7 +623,7 @@ h1 {
 /* --- MOBILE RESPONSIVENESS AND AUTO-SCALING --- */
 @media (max-width: 980px) {
   /* Scale selectors and containers to viewport size */
-  #hub-container, #game-container, #space-game-container, #viper-game-container, #breaker-game-container {
+  #hub-container, #game-container, #space-game-container, #viper-game-container, #breaker-game-container, #runner-game-container, #drift-game-container {
     width: 95vw;
     height: 59.375vw; /* Exact 1.6 aspect ratio (600 / 960 * 95) */
     margin: 10px auto;
@@ -614,19 +685,19 @@ h1 {
   }
 
   /* Scaling HUD inside active games */
-  #hud, #space-hud, #viper-hud, #breaker-hud {
+  #hud, #space-hud, #viper-hud, #breaker-hud, #runner-hud, #drift-hud {
     top: 10px;
     left: 10px;
     right: 10px;
   }
 
-  .hud-item, .space-hud-item, .viper-hud-item, .breaker-hud-item {
+  .hud-item, .space-hud-item, .viper-hud-item, .breaker-hud-item, .runner-hud-item, .drift-hud-item {
     padding: 5px 10px;
     font-size: 0.75rem;
     border-radius: 6px;
   }
 
-  .hud-btn, .space-hud-btn, .viper-hud-btn, .breaker-hud-btn {
+  .hud-btn, .space-hud-btn, .viper-hud-btn, .breaker-hud-btn, .runner-hud-btn, .drift-hud-btn {
     width: 30px;
     height: 30px;
     border-radius: 6px;
@@ -660,7 +731,7 @@ h1 {
     border-radius: 8px;
   }
 
-  h1, .space-title, .viper-title, .breaker-title {
+  h1, .space-title, .viper-title, .breaker-title, .runner-title, .drift-title {
     font-size: 2.5rem;
   }
 }

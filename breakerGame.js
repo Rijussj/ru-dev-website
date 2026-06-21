@@ -810,10 +810,8 @@ class BreakerGame {
     grad.addColorStop(1, '#881337');
     this.ctx.fillStyle = grad;
     
-    // Rounded paddle bar
-    this.ctx.beginPath();
-    this.ctx.roundRect(this.paddle.x, PADDLE_Y, this.paddle.width, PADDLE_H, 6);
-    this.ctx.fill();
+    // Standard paddle bar
+    this.ctx.fillRect(this.paddle.x, PADDLE_Y, this.paddle.width, PADDLE_H);
 
     // If lasers active, draw shooter nozzles
     if (this.paddle.laserActive) {

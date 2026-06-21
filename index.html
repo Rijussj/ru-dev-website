@@ -57,6 +57,28 @@
           <button class="btn btn-rose">PLAY BREAKER</button>
         </div>
       </div>
+
+      <!-- Pulse Runner Card -->
+      <div class="game-card" id="card-runner">
+        <div class="card-glow runner"></div>
+        <div class="card-content">
+          <div class="card-icon">⚡</div>
+          <h2>PULSE RUNNER</h2>
+          <p>Side-Scrolling Platformer. Tap to jump, trigger gravity-flip portals, and survive 20 tracks of high-speed hazards.</p>
+          <button class="btn btn-yellow">PLAY RUNNER</button>
+        </div>
+      </div>
+
+      <!-- Neon Drift Card -->
+      <div class="game-card" id="card-drift">
+        <div class="card-glow drift"></div>
+        <div class="card-content">
+          <div class="card-icon">🏎️</div>
+          <h2>NEON DRIFT</h2>
+          <p>Cyber Highway Racer. Steer left and right to dodge traffic obstacles and collect gold energy cells across 20 sectors.</p>
+          <button class="btn btn-purple">PLAY DRIFT</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -75,6 +97,14 @@
 
     document.getElementById('card-breaker').addEventListener('click', () => {
       window.location.href = 'breaker.html';
+    });
+
+    document.getElementById('card-runner').addEventListener('click', () => {
+      window.location.href = 'runner.html';
+    });
+
+    document.getElementById('card-drift').addEventListener('click', () => {
+      window.location.href = 'drift.html';
     });
   </script>
 </body>
