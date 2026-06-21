@@ -793,3 +793,18 @@ h1 {
   30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
   40%, 60% { transform: translate3d(4px, 0, 0); }
 }
+
+/* Fullscreen support across all arcade game containers */
+#game-container:fullscreen, 
+#space-game-container:fullscreen, 
+#viper-game-container:fullscreen, 
+#breaker-game-container:fullscreen, 
+#runner-game-container:fullscreen, 
+#drift-game-container:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  border: none;
+}

@@ -289,6 +289,19 @@ class NeonDrift {
       }
     });
 
+    const fsBtn = document.getElementById('drift-hud-btn-fullscreen');
+    if (fsBtn) {
+      fsBtn.addEventListener('click', () => {
+        const container = document.getElementById('drift-game-container');
+        if (!document.fullscreenElement) {
+          if (container.requestFullscreen) container.requestFullscreen();
+          else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+        }
+      });
+    }
+
     document.getElementById('drift-btn-next-level').addEventListener('click', () => {
       if (this.levelIdx + 1 < 20) {
         this.startLevel(this.levelIdx + 1);
